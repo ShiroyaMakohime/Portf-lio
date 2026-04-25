@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+:root {
+    --primaria: #6e2abb;
+    --secundaria: #be3cdf;
+    --maisEscuro: #000000;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    background-color: var(--maisEscuro);
+    color: var(--claro);
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* NAV */
+.navegacao {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    position: fixed;
+    background: rgba(79, 12, 151, 0.527);
+    z-index: 100;
+    backdrop-filter: blur(6px);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.menu-link {
+    color: var(--claro);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* INÍCIO */
+.background {
+    position: relative;
+    min-height: 100vh;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image: linear-gradient(to bottom, transparent, #000 70%), url('img/background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.cabecalho {
+    min-height: calc(100vh - 4.5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+}
+
+.foto-perfil {
+    width: min(260px, 70vw);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 0 50px rgba(169, 0, 236, 0.76);
+    border-radius: 50%;
+    border: 2px solid var(--primaria);
+    object-fit: cover;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    font-weight: bold;
+    font-family: "Iceberg", sans-serif;
+    color: var(--primaria);
+    margin: 1.5rem 0 0.25rem;
+}
+
+.texto-inicio {
+    font-size: clamp(0.8rem, 2.2vw, 1.3rem);
+    color: var(--claro);
+    padding: 0 1rem;
+}
+
+/* BIOGRAFIA */
+.biografia {
+    padding: 5rem 1.5rem 4rem;
+    max-width: 100%;
+}
+
+.titulo-bio {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Iceberg", sans-serif;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.caixa-bio {
+    padding: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--primaria);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(169, 0, 236, 0.76);
+}
+
+.texto-bio {
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+/* METAS */
+.metas {
+    padding: 5rem 1.5rem 4rem;
+    max-width: 100%;
+}
+
+.titulo-metas {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Iceberg", sans-serif;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.caixa-metas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metas-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.metas-card:hover {
+    box-shadow: 0 10px 20px rgba(169, 0, 236, 0.76);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.imagem-card {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.conteudo-card {
+    padding: 1.5rem;
+}
+
+.titulo-meta {
+    margin-bottom: 0.5rem;
+}
+
+.texto-metas {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.5;
+}
+
+/* HOBBIES */
+.hobbies {
+    padding: 5rem 1.5rem 4rem;
+    max-width: 100%;
+}
+
+.titulo-hobbies {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Iceberg", sans-serif;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.caixa-hobbies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 10px;
+    list-style: none;
+    min-width: 140px;
+}
+
+.hobbie {
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px rgba(169, 0, 236, 0.76);
+    border: 1px solid var(--primaria);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    text-align: center;
+}
+
+/* CONEXÕES */
+.conexoes {
+    padding: 5rem 1.5rem 4rem;
+    max-width: 100%;
+}
+
+.titulo-conexoes {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Iceberg", sans-serif;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.caixa-conexoes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+    flex-wrap: wrap;
+}
+
+.link-conexao {
+    color: rgb(180, 180, 180);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.link-conexao:hover {
+    color: rgb(226, 226, 226);
+    border-color: var(--primaria);
+}
+
+/* RODAPÉ */
+.texto-rodape {
+    color: rgb(158, 158, 158);
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 4.8rem;
+    }
+
+    .navegacao {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .menu {
+        gap: 1rem;
+    }
+
+    .menu-link {
+        font-size: 0.8rem;
+    }
+
+    .biografia,
+    .metas,
+    .hobbies,
+    .conexoes {
+        padding-inline: 1rem;
+    }
+
+    .imagem-card {
+        height: 180px;
+    }
+
+    .hobbie {
+        font-size: 1rem;
+    }
+}
+
+/* Telas médias (até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 5rem;
+    }
+
+    .biografia,
+    .metas,
+    .hobbies,
+    .conexoes {
+        padding-top: 4rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .caixa-bio {
+        padding: 1.25rem;
+    }
+
+    .caixa-hobbies {
+        justify-content: center;
+    }
+
+    .lista {
+        min-width: 45%;
+    }
+}
+
+/* Telas grandes (a partir de 1200px) */
+@media (min-width: 1200px) {
+    .biografia,
+    .metas,
+    .hobbies,
+    .conexoes {
+        padding-inline: 4rem;
+    }
+
+    .cabecalho {
+        min-height: calc(100vh - 5rem);
+    }
+}
